@@ -32,7 +32,7 @@ class MainActivity : AppCompatActivity() {
         // adapterをlistViewに紐付け
         listView.adapter = adapter
 
-        // 項目をタップしたときの処理
+        // タップしたときの処理
         listView.setOnItemClickListener {parent, view, position, id ->
 
             // 項目の TextView を取得
@@ -51,10 +51,22 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        // 長押ししたときの処理
+        listView.setOnItemLongClickListener { parent, view, position, id ->
+            // 削除
+            adapter.remove(adapter.getItem(position))
+            // 更新処理(リスト全体の更新)
+            adapter.notifyDataSetChanged()
+
+            return@setOnItemLongClickListener true
+        }
+
         // ＋ボタンにイベントを追加
         val addButton = findViewById<FloatingActionButton>(R.id.addButton)
         addButton.setOnClickListener{
+            // 追加
             adapter.insert("New Item " + adapter.count, adapter.count)
+            // 更新処理(リスト全体の更新)
             adapter.notifyDataSetChanged()
         }
     }
