@@ -3,6 +3,11 @@ plugins {
     id 'kotlin-android'
 }
 
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
 android {
     compileSdkVersion 30
     buildToolsVersion '30.0.2'
@@ -37,7 +42,6 @@ android {
     dataBinding {
         enabled = true
     }
-    ndkVersion '23.1.7779620'
 }
 
 dependencies {
