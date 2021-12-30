@@ -6,8 +6,15 @@ import androidx.lifecycle.ViewModel
 class GameViewModel : ViewModel() {
 
     private var _score = 0
+
+    val score: Int
+        get() = _score
+
     private var _currentWordCount = 0
     private lateinit var _currentScrambledWord: String
+
+    val currentScrambledWord: String
+        get() = _currentScrambledWord
 
     private var wordsList: MutableList<String> = mutableListOf()
     private lateinit var currentWord: String
@@ -17,9 +24,6 @@ class GameViewModel : ViewModel() {
         Log.d("GameFragment", "GameViewModel created!")
         getNextWord()
     }
-
-    val currentScrambledWord: String
-        get() = _currentScrambledWord
 
     // viewmodelが破棄される直前に呼び出される
     override fun onCleared() {
