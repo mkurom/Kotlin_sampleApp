@@ -41,21 +41,25 @@ class GameFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = GameFragmentBinding.inflate(inflater, container, false)
+
         Log.d("GameFragment", "GameFragment created/re-created!")
+        Log.d("GameFragment", "Word: ${viewModel.currentScrambledWord} " +
+                "Score: ${viewModel.score} WordCount: ${viewModel.currentWordCount}")
+
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        // フラグメントのsubmit, skipボタンのイベントを設定
+        binding.submit.setOnClickListener { onSubmitWord() }
+        binding.skip.setOnClickListener { onSkipWord() }
+
         updateNextWordOnScreen()
         binding.score.text = getString(R.string.score, 0)
         binding.wordCount.text = getString(
                 R.string.word_count, 0, MAX_NO_OF_WORDS)
-
-        // フラグメントのsubmit, skipボタンのイベントを設定
-        binding.submit.setOnClickListener { onSubmitWord() }
-        binding.skip.setOnClickListener { onSkipWord() }
     }
 
     // アクティビティ、フラグメントが破棄されるときに呼び出し
@@ -74,6 +78,7 @@ class GameFragment : Fragment() {
     }
 
     private fun restartGame() {
+        viewModel.reinitializeData()
         setErrorTextField(false)
         updateNextWordOnScreen()
     }
