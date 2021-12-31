@@ -53,9 +53,9 @@ class GameFragment : Fragment() {
         binding.wordCount.text = getString(
                 R.string.word_count, 0, MAX_NO_OF_WORDS)
 
-        // フラグメントのsubmitボタンのイベントを設定
+        // フラグメントのsubmit, skipボタンのイベントを設定
         binding.submit.setOnClickListener { onSubmitWord() }
-//        binding.skip.setOnClickListener { onSkipWord() }
+        binding.skip.setOnClickListener { onSkipWord() }
     }
 
     // アクティビティ、フラグメントが破棄されるときに呼び出し
@@ -89,6 +89,15 @@ class GameFragment : Fragment() {
         } else {
             binding.textField.isErrorEnabled = false
             binding.textInputEditText.text = null
+        }
+    }
+
+    private fun onSkipWord() {
+        if (viewModel.nextWord()) {
+            setErrorTextField(false)
+            updateNextWordOnScreen()
+        } else {
+            showFinalScoreDialog()
         }
     }
 
