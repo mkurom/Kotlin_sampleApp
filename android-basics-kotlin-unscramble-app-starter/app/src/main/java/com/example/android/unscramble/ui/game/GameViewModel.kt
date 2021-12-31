@@ -11,6 +11,7 @@ class GameViewModel : ViewModel() {
         get() = _score
 
     private var _currentWordCount = 0
+
     private lateinit var _currentScrambledWord: String
 
     val currentScrambledWord: String
@@ -48,10 +49,22 @@ class GameViewModel : ViewModel() {
         }
     }
 
+    private fun increaseScore() {
+        _score += SCORE_INCREASE
+    }
+
     fun nextWord(): Boolean {
         return if (_currentWordCount < MAX_NO_OF_WORDS) {
             getNextWord()
             true
         } else false
+    }
+
+    fun isUserWordCorrect(playerWord: String): Boolean {
+        if (playerWord.equals(currentWord, true)) {
+            increaseScore()
+            return true
+        }
+        return false
     }
 }

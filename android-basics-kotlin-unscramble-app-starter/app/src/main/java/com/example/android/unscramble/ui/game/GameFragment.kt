@@ -52,6 +52,10 @@ class GameFragment : Fragment() {
         binding.score.text = getString(R.string.score, 0)
         binding.wordCount.text = getString(
                 R.string.word_count, 0, MAX_NO_OF_WORDS)
+
+        // フラグメントのsubmitボタンのイベントを設定
+        binding.submit.setOnClickListener { onSubmitWord() }
+//        binding.skip.setOnClickListener { onSkipWord() }
     }
 
     // アクティビティ、フラグメントが破棄されるときに呼び出し
@@ -69,25 +73,15 @@ class GameFragment : Fragment() {
         return String(tempWord)
     }
 
-    /*
-     * Re-initializes the data in the ViewModel and updates the views with the new data, to
-     * restart the game.
-     */
     private fun restartGame() {
         setErrorTextField(false)
         updateNextWordOnScreen()
     }
 
-    /*
-     * Exits the game.
-     */
     private fun exitGame() {
         activity?.finish()
     }
 
-    /*
-    * Sets and resets the text field error status.
-    */
     private fun setErrorTextField(error: Boolean) {
         if (error) {
             binding.textField.isErrorEnabled = true
@@ -98,9 +92,21 @@ class GameFragment : Fragment() {
         }
     }
 
-    /*
-     * Displays the next scrambled word on screen.
-     */
+    private fun onSubmitWord() {
+        val playerWord = binding.textInputEditText.text.toString()
+
+        if (viewModel.isUserWordCorrect(playerWord)) {
+            setErrorTextField(false)
+            if (viewModel.nextWord()) {
+                updateNextWordOnScreen()
+            } else {
+                showFinalScoreDialog()
+            }
+        } else {
+            setErrorTextField(true)
+        }
+    }
+
     private fun updateNextWordOnScreen() {
         binding.textViewUnscrambledWord.text = viewModel.currentScrambledWord
     }
