@@ -64,24 +64,6 @@ class GameFragment : Fragment() {
         binding.skip.setOnClickListener { onSkipWord() }
 
         updateNextWordOnScreen()
-
-        // ラムダ式　{引数 -> 関数の実装 }
-        viewModel.currentScrambledWord.observe(viewLifecycleOwner,
-            { newWord ->
-                binding.textViewUnscrambledWord.text = newWord
-            })
-
-        viewModel.currentWordCount.observe(viewLifecycleOwner,
-            { newWordCount ->
-                binding.wordCount.text =
-                    getString(R.string.word_count, newWordCount, MAX_NO_OF_WORDS)
-            })
-
-        viewModel.score.observe(viewLifecycleOwner,
-            { newScore ->
-                binding.score.text = getString(R.string.score, newScore)
-            })
-
     }
 
     // アクティビティ、フラグメントが破棄されるときに呼び出し
