@@ -50,12 +50,6 @@ class GameViewModel : ViewModel() {
         getNextWord()
     }
 
-    // viewmodelが破棄される直前に呼び出される
-    override fun onCleared() {
-        super.onCleared()
-        Log.d("GameFragment", "GameViewModel destroyed!")
-    }
-
     private fun getNextWord() {
         currentWord = allWordsList.random()
         val tempWord = currentWord.toCharArray()
