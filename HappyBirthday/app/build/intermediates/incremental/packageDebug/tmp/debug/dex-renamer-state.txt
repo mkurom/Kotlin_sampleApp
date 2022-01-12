@@ -1,4 +1,0 @@
-#Wed Dec 29 15:48:59 JST 2021
-base.0=/Users/yasudamakoto/product/Kotlin/Kotlin_sampleApp/HappyBirthday/app/build/intermediates/dex/debug/mergeDexDebug/classes.dex
-renamed.0=classes.dex
-path.0=classes.dex
