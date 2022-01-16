@@ -62,14 +62,9 @@ class CreateToDoFragment: Fragment(R.layout.create_todo_fragment) {
         }
 
     private fun save() {
+        val title = binding.titleEdit.text.toString()
+        val detail = binding.detailEdit.text.toString()
 
-        val msg = binding.titleEdit
-
-        Log.e("Log", msg.text.toString())
-//
-//        val title = binding.titleEdit.text.toString()
-//        val detail = binding.detailEdit.text.toString()
-//
-//        vm.save(title, detail)
+        vm.save(title, detail)
     }
 }

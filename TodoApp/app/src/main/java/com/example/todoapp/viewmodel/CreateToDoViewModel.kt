@@ -14,20 +14,20 @@ class CreateToDoViewModel @Inject constructor(
     val errorMessage = MutableLiveData<String>()
     val done = MutableLiveData<Boolean>()
 
-    fun save(title: String, detail: String) {
+    fun save(title: String, description: String) {
         // タイトルが空だったらエラーメッセージを出す
         if (title.trim().isEmpty()) {
             errorMessage.value = "Please input title"
             return
         }
         // リポジトリ経由で実際の保存処理を行う
-        viewModelScope.launch {
+//        viewModelScope.launch {
             try {
-                repo.create(title, detail)
+//                repo.create(title, description)
                 done.value = true
             } catch (e: Exception) {
                 errorMessage.value = e.message
             }
-        }
+//        }
     }
 }
