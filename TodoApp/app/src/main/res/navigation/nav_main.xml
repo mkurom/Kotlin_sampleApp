@@ -9,8 +9,8 @@
         android:name="com.example.todoapp.view.MainFragment"
         android:label="MainFragment" >
         <action
-            android:id="@+id/action_mainFragment_to_editToDoFragment"
-            app:destination="@id/editToDoFragment"
+            android:id="@+id/action_mainFragment_to_createToDoFragment"
+            app:destination="@id/createToDoFragment"
             app:enterAnim="@anim/nav_default_enter_anim"
             app:exitAnim="@anim/nav_default_exit_anim"
             app:popEnterAnim="@anim/nav_default_pop_enter_anim"
@@ -36,8 +36,8 @@
         android:name="com.example.todoapp.view.ToDoDetailFragment"
         android:label="ToDoDetailFragment" >
         <action
-            android:id="@+id/action_toDoDetailFragment_to_createToDoFragment"
-            app:destination="@id/createToDoFragment"
+            android:id="@+id/action_toDoDetailFragment_to_editToDoFragment2"
+            app:destination="@id/editToDoFragment"
             app:enterAnim="@anim/nav_default_enter_anim"
             app:exitAnim="@anim/nav_default_exit_anim"
             app:popEnterAnim="@anim/nav_default_pop_enter_anim"
