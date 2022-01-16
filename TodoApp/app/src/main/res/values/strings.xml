@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">TodoApp</string>
     <string name="todo">TODO</string>
+    <string name="save">save</string>
+    <string name="detail">detail</string>
+    <string name="title">title</string>
 </resources>
