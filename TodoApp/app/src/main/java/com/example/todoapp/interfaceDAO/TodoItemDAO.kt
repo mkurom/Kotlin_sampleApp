@@ -9,6 +9,9 @@ interface TodoItemDAO {
     @Query("select * from TodoItem")
     fun getAllTodoItem(): Flow<List<TodoItem>>
 
+    @Query("select * from TodoItem order by createdAt desc")
+    fun getAll(): Flow<List<TodoItem>>
+
     @Insert
     suspend fun create(todoItem: TodoItem)
 

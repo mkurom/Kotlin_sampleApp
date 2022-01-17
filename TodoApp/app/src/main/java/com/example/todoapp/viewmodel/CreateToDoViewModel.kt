@@ -20,6 +20,11 @@ class CreateToDoViewModel @Inject constructor(
             errorMessage.value = "Please input title"
             return
         }
+        if (description.trim().isEmpty()) {
+            errorMessage.value = "Please input description"
+            return
+        }
+
         // リポジトリ経由で実際の保存処理を行う
 //        viewModelScope.launch {
             try {
