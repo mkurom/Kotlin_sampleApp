@@ -12,5 +12,5 @@ class MainViewModel @Inject constructor(
     private val repo: ToDoItemRepository
 ) : ViewModel() {
 
-    val todoList = repo.getAll().asLiveData()
+//    val todoList = repo.getAll().asLiveData()
 }

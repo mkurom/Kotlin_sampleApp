@@ -9,7 +9,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.todoapp.databinding.TodoItemBinding
 import com.example.todoapp.model.TodoItem
 
-class ToDoAdapter : ListAdapter<TodoItem, ToDoAdapter.ViewHolder>(callbacks) {
+class ToDoAdapter(private val listener: (TodoItem) -> Unit
+) : ListAdapter<TodoItem, ToDoAdapter.ViewHolder>(callbacks) {
     class ViewHolder(
         private val binding: TodoItemBinding
     ) : RecyclerView.ViewHolder(binding.root) {
@@ -27,9 +28,15 @@ class ToDoAdapter : ListAdapter<TodoItem, ToDoAdapter.ViewHolder>(callbacks) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val inflater = LayoutInflater.from(parent.context)
-
         val binding = TodoItemBinding.inflate(inflater, parent, false)
-        return ViewHolder(binding)
+
+        val holder = ViewHolder(binding)
+        holder.itemView.setOnClickListener {
+            val position = holder.bindingAdapterPosition
+            val todo = getItem(position)
+            listener(todo)
+        }
+        return holder
     }
 
     companion object {

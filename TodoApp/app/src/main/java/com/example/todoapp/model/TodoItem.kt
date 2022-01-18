@@ -1,9 +1,12 @@
 package com.example.todoapp.model
 
+import android.os.Parcelable
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import kotlinx.android.parcel.Parcelize
 
 @Entity
+@Parcelize
 data class TodoItem (
     @PrimaryKey(autoGenerate = true)
     val _id: Int = 0,
@@ -12,5 +15,4 @@ data class TodoItem (
     val isCompleted: Boolean,
     val createdAt: Long,
     val updatedAt: Long
-    ){
-}
+    ): Parcelable

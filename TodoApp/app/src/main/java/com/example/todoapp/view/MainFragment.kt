@@ -29,12 +29,16 @@ class MainFragment : Fragment(R.layout.main_fragment) {
         }
 
         // main_fragment.xmlのrecyclerにアタッチする
-        val adapter = ToDoAdapter()
+        val adapter = ToDoAdapter { todoitem ->
+            // Safe args 導入すると、<フラグメント名>Directionsが生成される
+            val action = MainFragmentDirections.actionMainFragmentToToDoDetailFragment(todoitem)
+            findNavController().navigate(action)
+        }
         binding.recycler.adapter = adapter
 
-        vm.todoList.observe(viewLifecycleOwner) { list : List<TodoItem> ->
-            adapter.submitList(list)
-        }
+//        vm.todoList.observe(viewLifecycleOwner) { list : List<TodoItem> ->
+//            adapter.submitList(list)
+//        }
     }
 
     override fun onDestroyView() {
