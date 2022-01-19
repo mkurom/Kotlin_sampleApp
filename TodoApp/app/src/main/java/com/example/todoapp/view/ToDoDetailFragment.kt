@@ -25,10 +25,10 @@ class ToDoDetailFragment : Fragment(R.layout.todo_detail_fragment) {
         this._binding = TodoDetailFragmentBinding.bind(view)
 
         // argumentsに追加した引数のName
-        val todoitem = args.todoitem
+        val todoItem = args.todoitem
 
-        binding.titleText.text = todoitem.title
-        binding.detailText.text = todoitem.description
+        binding.titleText.text = todoItem.title
+        binding.detailText.text = todoItem.description
     }
 
     override fun onDestroyView() {

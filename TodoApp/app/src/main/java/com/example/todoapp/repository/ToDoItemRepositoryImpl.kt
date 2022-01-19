@@ -12,12 +12,14 @@ class ToDoItemRepositoryImpl @Inject constructor (
     ): ToDoItemRepository {
     override suspend fun create(title: String, description: String) {
 
+        val now = System.currentTimeMillis()
+
         val todoItem = TodoItem(
             title = title,
             description = description,
             isCompleted = false,
-            createdAt = 20220111,
-            updatedAt = 20220111,
+            createdAt = now,
+            updatedAt = now,
         )
         withContext(Dispatchers.IO) {
             dao.create(todoItem)

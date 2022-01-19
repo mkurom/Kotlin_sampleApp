@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.todoapp.repository.ToDoItemRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
@@ -26,13 +27,13 @@ class CreateToDoViewModel @Inject constructor(
         }
 
         // リポジトリ経由で実際の保存処理を行う
-//        viewModelScope.launch {
+        viewModelScope.launch {
             try {
-//                repo.create(title, description)
+                repo.create(title, description)
                 done.value = true
             } catch (e: Exception) {
                 errorMessage.value = e.message
             }
-//        }
+        }
     }
 }
