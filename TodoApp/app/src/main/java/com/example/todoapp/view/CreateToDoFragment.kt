@@ -45,9 +45,10 @@ class CreateToDoFragment: Fragment(R.layout.create_todo_fragment) {
         setHasOptionsMenu(true)
     }
 
+    // setHasOptionsMenuメソッドが呼ばれることで、このメソッドが呼ばれる
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)
-
+        // layout/menuパッケージからmenu_createを拡張する（アップバーに表示する）
         inflater.inflate(R.menu.menu_create, menu)
     }
 

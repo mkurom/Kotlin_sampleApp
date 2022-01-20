@@ -26,6 +26,23 @@ class ToDoItemRepositoryImpl @Inject constructor (
         }
     }
 
+    override suspend fun update(todo: TodoItem, title: String, description: String) : TodoItem {
+        val updateToDo = TodoItem(
+            _id = todo._id,
+            title = title,
+            description = description,
+            isCompleted = false,
+            createdAt = todo.createdAt,
+            updatedAt = System.currentTimeMillis()
+        )
+
+        withContext(Dispatchers.IO) {
+            dao.update(updateToDo)
+        }
+
+        return updateToDo
+    }
+
     override fun getAll(): Flow<List<TodoItem>> {
         return dao.getAll()
     }
