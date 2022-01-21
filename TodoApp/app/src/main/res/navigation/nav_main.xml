@@ -49,5 +49,16 @@
         <argument
             android:name="todoitem"
             app:argType="com.example.todoapp.model.TodoItem" />
+        <action
+            android:id="@+id/action_toDoDetailFragment_to_confirmDialogFragment"
+            app:destination="@id/confirmDialogFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
     </fragment>
+    <fragment
+        android:id="@+id/confirmDialogFragment"
+        android:name="com.example.todoapp.view.dialog.ConfirmDialogFragment"
+        android:label="ConfirmDialogFragment" />
 </navigation>

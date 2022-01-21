@@ -43,6 +43,10 @@ class ToDoItemRepositoryImpl @Inject constructor (
         return updateToDo
     }
 
+    override suspend fun delete(todo: TodoItem) {
+        dao.delete(todo)
+    }
+
     override fun getAll(): Flow<List<TodoItem>> {
         return dao.getAll()
     }

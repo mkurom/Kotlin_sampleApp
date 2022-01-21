@@ -8,5 +8,7 @@ interface ToDoItemRepository {
 
     suspend fun update(todo: TodoItem, title: String, description: String) : TodoItem
 
+    suspend fun delete(value: TodoItem)
+
     fun getAll(): Flow<List<TodoItem>>
 }
