@@ -37,6 +37,7 @@ class EditToDoFragment : Fragment(R.layout.edit_todo_fragment) {
         binding.titleEdit.setText(todo.title)
         binding.detailEdit.setText(todo.description)
 
+        // todo: vm(EditToDoViewModel)参照でエラーになる原因調査中
         vm.errorMessage.observe(viewLifecycleOwner) { msg ->
             if (msg.isEmpty()) return@observe
 

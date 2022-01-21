@@ -13,7 +13,6 @@ import javax.inject.Inject
 class EditToDoViewModel @Inject constructor(
     private val repo: ToDoItemRepository
 ) : ViewModel() {
-
     val errorMessage = MutableLiveData<String>()
     val updatedTodoItem = MutableLiveData<TodoItem>()
 

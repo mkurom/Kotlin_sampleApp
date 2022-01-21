@@ -32,8 +32,8 @@ class CreateToDoFragment: Fragment(R.layout.create_todo_fragment) {
             vm.errorMessage.value = ""
         }
 
-        vm.done.observe(viewLifecycleOwner) { done ->
-            if (!done) return@observe
+        vm.isDone.observe(viewLifecycleOwner) { isDone ->
+            if (!isDone) return@observe
             // 1つ前の画面に戻る
             findNavController().popBackStack()
         }

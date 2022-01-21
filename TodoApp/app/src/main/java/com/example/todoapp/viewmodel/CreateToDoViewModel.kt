@@ -13,7 +13,7 @@ class CreateToDoViewModel @Inject constructor(
     private val repo: ToDoItemRepository
 ) : ViewModel() {
     val errorMessage = MutableLiveData<String>()
-    val done = MutableLiveData<Boolean>()
+    val isDone = MutableLiveData<Boolean>()
 
     fun save(title: String, description: String) {
         // タイトルが空だったらエラーメッセージを出す
@@ -30,7 +30,7 @@ class CreateToDoViewModel @Inject constructor(
         viewModelScope.launch {
             try {
                 repo.create(title, description)
-                done.value = true
+                isDone.value = true
             } catch (e: Exception) {
                 errorMessage.value = e.message
             }
