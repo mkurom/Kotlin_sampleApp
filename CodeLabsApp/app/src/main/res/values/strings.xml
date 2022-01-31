@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">CodeLabsApp</string>
+    <string name="count">COUNT</string>
+    <string name="toast">TOAST</string>
 </resources>
