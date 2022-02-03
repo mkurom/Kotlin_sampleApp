@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">CodeLabsApp</string>
-    <string name="count">COUNT</string>
-    <string name="toast">TOAST</string>
+    <string name="button_label_count">COUNT</string>
+    <string name="button_label_toast">TOAST</string>
+    <string name="count_initial_value">0</string>
 </resources>
