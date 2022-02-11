@@ -1,5 +1,6 @@
 package com.example.jetpackcomposesampleapp
 
+import android.content.res.Configuration
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -63,14 +64,26 @@ fun MessageCard(msg: Message) {
 
             Spacer(modifier = Modifier.height(4.dp))
 
-            Text(text = msg.body,
-                style = MaterialTheme.typography.body2
-            )
+            Surface(shape = MaterialTheme.shapes.medium,
+                    elevation = 1.dp,
+//                    color = MaterialTheme.colors.secondaryVariant
+            ) {
+                Text(
+                    text = msg.body,
+                    modifier = Modifier.padding(all = 4.dp),
+                    style = MaterialTheme.typography.body2
+                )
+            }
         }
     }
 }
 
-@Preview
+@Preview(name = "Light Mode")
+@Preview(
+    uiMode = Configuration.UI_MODE_NIGHT_YES,
+    showBackground = true,
+    name = "Dark Mode"
+)
 @Composable
 fun PreviewMessageCard() {
 
