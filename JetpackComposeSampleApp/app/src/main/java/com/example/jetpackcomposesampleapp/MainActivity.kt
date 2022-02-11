@@ -51,10 +51,6 @@ fun MessageCard(msg: Message) {
 @Preview
 @Composable
 fun PreviewMessageCard() {
-    Image(
-        painter = painterResource(R.drawable.profile_picture),
-        contentDescription = "Contact profile picture",
-    )
     MessageCard(
         msg = Message("Colleague", "Hey, take a look at Jetpack Compose, it's great!")
     )
