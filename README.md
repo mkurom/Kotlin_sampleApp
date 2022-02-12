@@ -6,6 +6,8 @@ Kotlin勉強用
 
 https://developer.android.com/courses/fundamentals-training/toc-v2?hl=ja
 
+https://developer.android.com/courses/android-basics-kotlin/course
+
 https://blog.mokelab.com/
 
 
@@ -14,55 +16,55 @@ https://blog.mokelab.com/
 
 ●MyFirstApp
 
-状態：完了
+　状態：完了
 
-内容：android developerのサンプルプロジェクト
+　内容：android developerのサンプルプロジェクト
 
-https://developer.android.com/training/basics/firstapp?hl=ja
+　https://developer.android.com/training/basics/firstapp?hl=ja
 
 
 ●TodoApp
 
-状態：途中
+　状態：途中
 
-内容：Todoアプリ
+　内容：Todoアプリ
 
-その他：todoアイテムの編集、削除ができていない問題がある
+　その他：todoアイテムの編集、削除ができていない問題がある
 
-→調査中
+　→調査中
 
 
 ●MVVMSampleApp
 
-状態：完了
+　状態：完了
 
-内容：MVVM確認のためのアプリ
+　内容：MVVM確認のためのアプリ
 
-その他：データバインディング後のビルドエラーが発生中
+　その他：データバインディング後のビルドエラーが発生中
 
 
 ●HappyBirthday
 
-状態：完了
+　状態：完了
 
-内容：android developerのサンプルプロジェクト
+　内容：android developerのサンプルプロジェクト
 
-https://developer.android.com/courses/android-basics-kotlin/unit-1?hl=ja
+　https://developer.android.com/courses/android-basics-kotlin/unit-1?hl=ja
 
 
 ●android-basics-kotlin-unscramble-app-starter
 
-状態：完了
+　状態：完了
 
-内容：android developerのサンプルプロジェクト
+　内容：android developerのサンプルプロジェクト
 
-https://developer.android.com/codelabs/basic-android-kotlin-training-viewmodel
+　https://developer.android.com/codelabs/basic-android-kotlin-training-viewmodel
 
 
 ●CodeLabsApp
 
-状態：作成中
+　状態：作成中
 
-内容：android developerのサンプルプロジェクト
+　内容：android developerのサンプルプロジェクト
 
-https://developer.android.com/courses/fundamentals-training/toc-v2
+　https://developer.android.com/courses/fundamentals-training/toc-v2
