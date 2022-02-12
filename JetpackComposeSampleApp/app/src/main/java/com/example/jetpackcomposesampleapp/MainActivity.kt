@@ -29,18 +29,12 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            //JetpackComposeSampleAppTheme {
-            //Surface(color = MaterialTheme.colors.background) {
-            //Greeting("Android")
-            //}
-            //}
             JetpackComposeSampleAppTheme {
                 MessageCard(Message("Android", "Jetpack Compose"))
             }
         }
     }
 }
-
 
 data class Message(val author: String, val body: String)
 
@@ -114,18 +108,3 @@ fun PreviewConversation() {
         Conversation(SampleData.conversationSample)
     }
 }
-
-
-//@Composable
-//fun Greeting(name: String) {
-//    Text(text = "Hello $name!")
-//}
-//
-//// Previewアノテーションをつけると、プレビューが表示される
-//@Preview(showBackground = true)
-//@Composable
-//fun DefaultPreview() {
-//    JetpackComposeSampleAppTheme {
-//        Greeting("Android")
-//    }
-//}
