@@ -8,6 +8,7 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
@@ -18,6 +19,8 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.foundation.lazy.items
+import com.example.jetpackcomposesampleapp.data.SampleData
 
 import com.example.jetpackcomposesampleapp.ui.theme.JetpackComposeSampleAppTheme
 
@@ -27,9 +30,9 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             //JetpackComposeSampleAppTheme {
-                //Surface(color = MaterialTheme.colors.background) {
-                    //Greeting("Android")
-                //}
+            //Surface(color = MaterialTheme.colors.background) {
+            //Greeting("Android")
+            //}
             //}
             JetpackComposeSampleAppTheme {
                 MessageCard(Message("Android", "Jetpack Compose"))
@@ -65,7 +68,7 @@ fun MessageCard(msg: Message) {
             Spacer(modifier = Modifier.height(4.dp))
 
             Surface(shape = MaterialTheme.shapes.medium,
-                    elevation = 1.dp,
+                elevation = 1.dp,
 //                    color = MaterialTheme.colors.secondaryVariant
             ) {
                 Text(
@@ -78,7 +81,7 @@ fun MessageCard(msg: Message) {
     }
 }
 
-@Preview(name = "Light Mode")
+//@Preview(name = "Light Mode")
 @Preview(
     uiMode = Configuration.UI_MODE_NIGHT_YES,
     showBackground = true,
@@ -94,6 +97,24 @@ fun PreviewMessageCard() {
         )
     }
 }
+
+@Composable
+fun Conversation(messages: List<Message>) {
+    LazyColumn {
+        items(messages) { message ->
+            MessageCard(message)
+        }
+    }
+}
+
+@Preview
+@Composable
+fun PreviewConversation() {
+    JetpackComposeSampleAppTheme {
+        Conversation(SampleData.conversationSample)
+    }
+}
+
 
 //@Composable
 //fun Greeting(name: String) {
